@@ -3,7 +3,7 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Array2D {
+public class Main {
     public static void main(String[] args){
 
         Scanner scn = new Scanner(System.in);
@@ -32,21 +32,37 @@ public class Array2D {
             System.out.println();
         }
         scn.close();
+        int max_index_row = 0;
+        int max_index_column = 0;
+
+        int min_index_row = 0;
+        int min_index_column = 0;
+
         int max = arr[0][0];
         int min = arr[0][0];
 
-        for (int[] ints : arr) {
-            for (int j = 0; j < arr[0].length; j++) {
-                if (max < ints[j]) {
-                    max = ints[j];
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                if (max < arr[i][j])
+                {
+                    max = arr[i][j];
+                    max_index_row = i;
+                    max_index_column = j;
+
                 }
 
-                if (min > ints[j]) {
-                    min = ints[j];
+                if (min > arr[i][j])
+                {
+                    min = arr[i][j];
+                    min_index_row = i;
+                    min_index_column = j;
                 }
             }
         }
-        System.out.println("Min: " + min + "\n" + "Max: " + max);
+        System.out.println("Min: " + min + " Индексы row и column: "+ min_index_row + " " + min_index_column +
+                "\n" + "Max: " + max + " Индексы row и column: "+ max_index_row + " " + max_index_column);
 
     }
 }
